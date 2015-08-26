@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Blog")
+@Table(name = "blog")
 public class Blog implements Serializable{
 
 	/**
@@ -25,7 +25,7 @@ public class Blog implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "nome")
 	private String nome;
 	
@@ -55,9 +55,6 @@ public class Blog implements Serializable{
 	public void setSite(String site) {
 		this.site = site;
 	}
-	
-
-	
 	
 	
 }
