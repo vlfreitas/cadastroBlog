@@ -2,25 +2,27 @@ package br.com.blog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.blog.model.Blog;
-import br.com.blog.service.BlogService;
+import br.com.blog.model.Comentario;
+import br.com.blog.service.ComentarioService;
 
 @Controller
-@RequestMapping("/blog")
-public class blogController {
+@RequestMapping("/blog/id/comentario")
+public class comentarioController {
 
-	public static final String VIEW = "view";
+
+	public static final String VIEW = "viewComentario";
 	
 	@Autowired
-	private BlogService service;
+	private ComentarioService service;
 	
 	@RequestMapping(value = "" , method = RequestMethod.POST)
-	public ModelAndView save(Blog blog){
-		service.save(blog);
+	public ModelAndView save(Comentario comentario){
+		service.save(comentario);
 		
 		return listAll();
 	}
@@ -29,7 +31,7 @@ public class blogController {
 	public ModelAndView listAll(){
 		
 		ModelAndView modView = new ModelAndView(VIEW);
-		modView.addObject("blog", service.listAll());
+		modView.addObject("comentario", service.listAll());
 		return modView;
 		
 		

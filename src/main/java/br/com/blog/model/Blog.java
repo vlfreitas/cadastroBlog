@@ -31,6 +31,7 @@ public class Blog implements Serializable{
 	
 	@Column(name = "site")
 	private String site;
+	
 
 	public int getId() {
 		return id;
