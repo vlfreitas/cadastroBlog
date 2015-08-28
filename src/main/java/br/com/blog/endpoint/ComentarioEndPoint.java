@@ -25,13 +25,14 @@ public class ComentarioEndPoint {
 	public ResponseEntity<?> save(@RequestBody Comentario comentario){
 		
 		service.save(comentario);
-		
+		System.out.println("Inserindo!");
 		return new ResponseEntity<Comentario>(HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="" , method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?>list(){
 		
+		System.out.println("Listando");
 		return new ResponseEntity<List<Comentario>>(service.listAll(), HttpStatus.OK);
 		
 		

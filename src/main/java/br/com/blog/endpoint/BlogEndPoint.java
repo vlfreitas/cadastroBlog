@@ -25,13 +25,15 @@ public class BlogEndPoint {
 		public ResponseEntity<?> save(@RequestBody Blog blog){
 			
 			service.save(blog);
-			
+			System.out.println("Inserido!");
 			return new ResponseEntity<Blog>(HttpStatus.OK);
+
 		}
 		
 		@RequestMapping(value="" , method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 		public ResponseEntity<?>list(){
 			
+			System.out.println("Listando!");
 			return new ResponseEntity<List<Blog>>(service.listAll(), HttpStatus.OK);
 			
 			

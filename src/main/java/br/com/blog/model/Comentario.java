@@ -4,40 +4,53 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "comentario")
 public class Comentario implements Serializable {
 
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
 	@Id
-	@Column(name = "nomeB")
-	private String nomeB;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	public int id;
+
+	@Column(name = "coment")
+	private String comentario;
 	
-	@Column(name = "comentarioB")
-	private String comentarioB;
-
-	public String getNomeB() {
-		return nomeB;
+	@ManyToOne
+	@JoinColumn(name = "idBlog")
+	private Blog blog;
+	
+	
+	
+	public Blog getBlog() {
+		return blog;
+	}
+	
+	public Blog setBlog(Blog blog){
+		return this.blog = blog;
 	}
 
-	public void setNomeB(String nomeB) {
-		this.nomeB = nomeB;
+	public int getId() {
+		return id;
 	}
 
-	public String getComentarioB() {
-		return comentarioB;
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public String getComentario() {
+		return comentario;
 	}
 
-	public void setComentarioB(String comentarioB) {
-		this.comentarioB = comentarioB;
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
 	}
 	
 }

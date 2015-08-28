@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class AbstractComentarioRepository {
+public abstract class AbstractBlogComentarioRepository {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -16,4 +16,10 @@ public class AbstractComentarioRepository {
 	public void persist(Object entity) {
 	     getSession().persist(entity);
 	}
+	
+	public void update(Object entity) {
+       getSession().update(entity);
+    }
+	
+	public abstract Object findById(int id);
 }
